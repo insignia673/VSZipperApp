@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 
 namespace ZipperExtension.Utils
 {
     public class Zip
     {
-        public static List<string> DirectoriesExcluded { get; set; } = new List<string>() { "bin", "obj" };
-        public static List<string> FilesExcluded { get; set; } = new List<string>();
-        public static void ZipProject(string path, string targetName)
+        public static List<string> Exclusion { get; set; }
+        public static void ZipProject(string path, string targetName, File_Folder_Selector.Structs.Options options)
         {
-            var temp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            var target = new DirectoryInfo(path + "\\" + targetName + temp);
+            Exclusion = new List<string>();
+
+            var temp = DateTimeOffset.Now.ToUnixTimeMilliseconds();            
             var info = new DirectoryInfo(path);
+            path += (options.CreateZipFolder ? "\\Zipped Projects\\" : "\\");
+            var target = new DirectoryInfo(path + targetName + temp);
+            Exclusion.Add("Zipped Projects");
+
+            foreach (var item in options.FileDirSettings)
+                if (item.Value)
+                    Exclusion.Add(item.Key);
 
             var targetPath = path + "\\" + targetName + ".zip";
             if (File.Exists(targetPath))
@@ -32,7 +40,7 @@ namespace ZipperExtension.Utils
             // Copy each file into the new directory.
             foreach (FileInfo fi in source.GetFiles())
             {
-                if (FilesExcluded.Contains(fi.Name))
+                if (Exclusion.Contains(fi.Name))
                     continue;
 
                 Console.WriteLine(@"Copying {0}\{1}", target.FullName, fi.Name);
@@ -43,7 +51,7 @@ namespace ZipperExtension.Utils
             foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
             {
                 // exclude unwanted director and temporary dir if needed
-                if (DirectoriesExcluded.Contains(diSourceSubDir.Name) || diSourceSubDir.Name == target.Name)
+                if (Exclusion.Contains(diSourceSubDir.Name) || diSourceSubDir.Name == target.Name)
                     continue;
 
                 DirectoryInfo nextTargetSubDir =

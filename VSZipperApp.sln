@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipperExtension", "ZipperExtension\ZipperExtension.csproj", "{DBA1E352-0C4F-4724-B13D-B5458D7C02CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "File Folder Selector", "File Folder Selector\File Folder Selector.csproj", "{B2F24045-8166-4C6D-BB7E-D8D75FC741F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{DBA1E352-0C4F-4724-B13D-B5458D7C02CF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DBA1E352-0C4F-4724-B13D-B5458D7C02CF}.Release|x86.ActiveCfg = Release|x86
 		{DBA1E352-0C4F-4724-B13D-B5458D7C02CF}.Release|x86.Build.0 = Release|x86
+		{B2F24045-8166-4C6D-BB7E-D8D75FC741F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F24045-8166-4C6D-BB7E-D8D75FC741F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F24045-8166-4C6D-BB7E-D8D75FC741F5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B2F24045-8166-4C6D-BB7E-D8D75FC741F5}.Debug|x86.Build.0 = Debug|Any CPU
+		{B2F24045-8166-4C6D-BB7E-D8D75FC741F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F24045-8166-4C6D-BB7E-D8D75FC741F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F24045-8166-4C6D-BB7E-D8D75FC741F5}.Release|x86.ActiveCfg = Release|Any CPU
+		{B2F24045-8166-4C6D-BB7E-D8D75FC741F5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

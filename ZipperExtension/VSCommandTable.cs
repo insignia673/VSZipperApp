@@ -21,6 +21,8 @@ namespace ZipperExtension
     internal sealed partial class PackageIds
     {
         public const int MyMenuGroup = 0x0001;
-        public const int MyCommand = 0x0100;
+        public const int TopMenuGroup = 0x0002;
+        public const int ZipProject = 0x0100;
+        public const int ZipSettings = 0x0101;
     }
 }
