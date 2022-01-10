@@ -40,7 +40,8 @@ namespace ZipperExtension.Utils
             // Copy each file into the new directory.
             foreach (FileInfo fi in source.GetFiles())
             {
-                if (Exclusion.Contains(fi.Name))
+                if (Exclusion.Contains(fi.Name) ||
+                    Exclusion.Any(x => x[0] == '*' && fi.Name.EndsWith(new string(x.Skip(1).ToArray()))))
                     continue;
 
                 Console.WriteLine(@"Copying {0}\{1}", target.FullName, fi.Name);
