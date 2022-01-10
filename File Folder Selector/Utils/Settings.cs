@@ -24,7 +24,7 @@ namespace File_Folder_Selector.Utils
                     { "bin", true },
                     { "obj", true }
                 };
-                bool createZip = false;
+                bool createZip = true;
 
                 Options = new Options(dict, createZip);
 
