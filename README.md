@@ -8,4 +8,4 @@ A folder containing all your zip files will be automatically created within your
 You may change the directories/files to exclude from your zip in the settings.
 
 ## How to install:
-As of now this isnt available through the Extensions tab in Visual Studio (will com soon). To use this app you must clone it in Visual Studio and run the app.
+As of now this isnt available through the Extensions tab in Visual Studio (will come soon). To use this app you must clone it in Visual Studio and run the app.
