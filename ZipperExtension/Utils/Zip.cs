@@ -23,7 +23,7 @@ namespace ZipperExtension.Utils
                 if (item.Value)
                     Exclusion.Add(item.Key);
 
-            var targetPath = path + "\\" + targetName + ".zip";
+            var targetPath = path + targetName + ".zip";
             if (File.Exists(targetPath))
                 File.Delete(targetPath);
 
