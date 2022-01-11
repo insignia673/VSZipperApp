@@ -9,27 +9,27 @@ namespace ZipperExtension.Utils
     public class Zip
     {
         public static List<string> Exclusion { get; set; }
-        public static void ZipProject(string path, string targetName, File_Folder_Selector.Structs.Options options)
+        public static void ZipProject(string path, string targetPath, string targetName, File_Folder_Selector.Structs.Options options)
         {
             Exclusion = new List<string>();
 
-            var temp = DateTimeOffset.Now.ToUnixTimeMilliseconds();            
-            var info = new DirectoryInfo(path);
-            path += (options.CreateZipFolder ? "\\Zipped Projects\\" : "\\");
-            var target = new DirectoryInfo(path + targetName + temp);
+            var temp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             Exclusion.Add("Zipped Projects");
 
             foreach (var item in options.FileDirSettings)
                 if (item.Value)
                     Exclusion.Add(item.Key);
 
-            var targetPath = path + targetName + ".zip";
-            if (File.Exists(targetPath))
-                File.Delete(targetPath);
+            targetPath += targetName;
+            var info = new DirectoryInfo(path);
+            var target = new DirectoryInfo(targetPath + temp);
+
+            if (File.Exists(targetPath + ".zip"))
+                File.Delete(targetPath + ".zip");
 
             CopyAll(info, target);
 
-            ZipFile.CreateFromDirectory(target.FullName, targetPath);
+            ZipFile.CreateFromDirectory(target.FullName, targetPath+".zip");
             target.Delete(true);
         }
 

@@ -1,6 +1,7 @@
 ﻿using File_Folder_Selector.Structs;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,15 +24,21 @@ namespace ZipperExtension.Commands
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.RestoreDirectory = true;
             saveDialog.InitialDirectory = projectPath;
-            saveDialog.FileName = $"{activeItem.Name}.zip";
+            saveDialog.FileName = $"{activeItem.Name.Replace(".sln", "")}.zip";
             saveDialog.Filter = "zip files (*.zip)|*.zip";
 
             if (saveDialog.ShowDialog() == DialogResult.OK)
             {
-                var name = saveDialog.FileName.Replace(saveDialog.InitialDirectory + "\\", "").Replace(".zip", "");
+                var name = Path.GetFileName(saveDialog.FileName).Replace(".zip", "");
+                var targetPath = saveDialog.FileName.Replace($"\\{name}.zip", "") + "\\";
 
-                Zip.ZipProject(projectPath, name, Options);
-                await VS.MessageBox.ShowAsync($"Adding zipped project to {name}.zip");
+                if (Options.CreateZipFolder && !targetPath.EndsWith("Zipped Projects\\"))
+                {
+                    targetPath += "Zipped Projects\\";
+                }
+
+                Zip.ZipProject(projectPath, targetPath, name, Options);
+                await VS.MessageBox.ShowAsync($"Added zipped project to {name}.zip");
             }
         }
     }

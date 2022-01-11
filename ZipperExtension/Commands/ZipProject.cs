@@ -25,10 +25,16 @@ namespace ZipperExtension
 
             if (saveDialog.ShowDialog() == DialogResult.OK)
             {
-                var name = saveDialog.FileName.Replace(saveDialog.InitialDirectory + "\\", "").Replace(".zip", "");
+                var name = Path.GetFileName(saveDialog.FileName).Replace(".zip", "");
+                var targetPath = saveDialog.FileName.Replace($"\\{name}.zip", "") + "\\";
 
-                Zip.ZipProject(projectPath, name, Options);
-                await VS.MessageBox.ShowAsync($"Adding zipped project to {name}.zip");
+                if (Options.CreateZipFolder && !targetPath.EndsWith("Zipped Projects\\"))
+                {
+                    targetPath += "Zipped Projects\\";
+                }
+
+                Zip.ZipProject(projectPath, targetPath, name, Options);
+                await VS.MessageBox.ShowAsync($"Added zipped project to {name}.zip");
             }
         }
     }
