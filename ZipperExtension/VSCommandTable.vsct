@@ -8,34 +8,50 @@
 
   <Commands package="ZipperExtension">
     <Groups>
-		<Group guid="ZipperExtension" id="MyMenuGroup" priority="0x0600">
+		<Group guid="ZipperExtension" id="ProjectMenuGroup" priority="0x0600">
 			<Parent guid="VSMainMenu" id="ProjectNode"/>
 		</Group>
 		<Group guid="ZipperExtension" id="TopMenuGroup" priority="0x0600">
 			<Parent guid="VSMainMenu" id="Project"/>
+		</Group>
+		<Group guid="ZipperExtension" id="SolutionMenuGroup" priority="0x0600">
+			<Parent guid="VSMainMenu" id="SolutionNode"/>
 		</Group>
     </Groups>
 
     <!--This section defines the elements the user can interact with, like a menu command or a button
         or combo box in a toolbar. -->
 	  <Buttons>
+		  <!--Project Menu-->
+		  <Button guid="ZipperExtension" id="ZipSettings" priority="0x0101" type="Button">
+			  <Parent guid="ZipperExtension" id="TopMenuGroup" />
+			  <Icon guid="ImageCatalogGuid" id="ProcedureSettings" />
+			  <CommandFlag>IconIsMoniker</CommandFlag>
+			  <Strings>
+				  <ButtonText>Zip Project Settings</ButtonText>
+				  <LocCanonicalName>.ProjectNode.ZipProjectSettings</LocCanonicalName>
+			  </Strings>
+		  </Button>
+
+		  <!--Solution Node Menu-->
+		  <Button guid="ZipperExtension" id="ZipSolution" priority="0x0102" type="Button">
+			  <Parent guid="ZipperExtension" id="SolutionMenuGroup" />
+			  <Icon guid="ImageCatalogGuid" id="SolutionFolderSwitch" />
+			  <CommandFlag>IconIsMoniker</CommandFlag>
+			  <Strings>
+				  <ButtonText>Zip Solution</ButtonText>
+				  <LocCanonicalName>.SolutionNode.ZipSolution</LocCanonicalName>
+			  </Strings>
+		  </Button>
+
+		  <!--Project Node Menu-->
 		  <Button guid="ZipperExtension" id="ZipProject" priority="0x0100" type="Button">
-			  <Parent guid="ZipperExtension" id="MyMenuGroup" />
+			  <Parent guid="ZipperExtension" id="ProjectMenuGroup" />
 			  <Icon guid="ImageCatalogGuid" id="ProjectFilterFile" />
 			  <CommandFlag>IconIsMoniker</CommandFlag>
 			  <Strings>
 				  <ButtonText>Zip Project</ButtonText>
 				  <LocCanonicalName>.ProjectNode.ZipProject</LocCanonicalName>
-			  </Strings>
-		  </Button>
-
-		  <Button guid="ZipperExtension" id="ZipSettings" priority="0x0101" type="Button">
-			  <Parent guid="ZipperExtension" id="TopMenuGroup" />
-					<Icon guid="ImageCatalogGuid" id="ProcedureSettings" />
-			  <CommandFlag>IconIsMoniker</CommandFlag>
-			  <Strings>
-				  <ButtonText>Zip Project Settings</ButtonText>
-				  <LocCanonicalName>.ProjectNode.ZipProjectSettings</LocCanonicalName>
 			  </Strings>
 		  </Button>
 	  </Buttons>
@@ -44,9 +60,11 @@
 
   <Symbols>
     <GuidSymbol name="ZipperExtension" value="{1d319b23-24c1-4e01-9c95-cd50eea3438b}">
-	  <IDSymbol name="MyMenuGroup" value="0x0001" />
+	  <IDSymbol name="ProjectMenuGroup" value="0x0001" />
 	  <IDSymbol name="TopMenuGroup" value="0x0002" />
+	  <IDSymbol name="SolutionMenuGroup" value="0x0003" />
 	  <IDSymbol name="ZipProject" value="0x0100" />
+	  <IDSymbol name="ZipSolution" value="0x0102" />
 	  <IDSymbol name="ZipSettings" value="0x0101" />
     </GuidSymbol>
   </Symbols>

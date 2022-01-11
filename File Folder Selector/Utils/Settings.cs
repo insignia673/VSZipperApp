@@ -22,7 +22,8 @@ namespace File_Folder_Selector.Utils
                 var dict = new Dictionary<string, bool>()
                 {
                     { "bin", true },
-                    { "obj", true }
+                    { "obj", true },
+                    { ".vs", true}
                 };
                 bool createZip = true;
 

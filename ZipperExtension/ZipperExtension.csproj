@@ -46,6 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\ZipSettings.cs" />
+    <Compile Include="Commands\ZipSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\ZipProject.cs" />
     <Compile Include="Utils\Zip.cs" />
