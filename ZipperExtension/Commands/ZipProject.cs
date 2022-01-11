@@ -2,6 +2,7 @@
 using ZipperExtension.Utils;
 using File_Folder_Selector.Utils;
 using File_Folder_Selector.Structs;
+using System.IO;
 
 namespace ZipperExtension
 {

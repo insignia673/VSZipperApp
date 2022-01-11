@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,13 +100,30 @@ namespace File_Folder_Selector
         private void browseBtn_Click(object sender, EventArgs e)
         {
             var dialog = new OpenFileDialog();
+            dialog.Multiselect = true;
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                AddExclusion(dialog.SafeFileName);
-            }
+                foreach (var item in dialog.FileNames)
+                {
+                    AddExclusion(Path.GetFileName(item));
+                }
 
-            mainListBox.DataSource = GetListString();
+                mainListBox.DataSource = GetListString();
+            }            
+        }
+
+        private void browseFolderBtn_Click(object sender, EventArgs e)
+        {
+            var dialog = new FolderBrowserDialog();
+            dialog.SelectedPath = Directory.GetCurrentDirectory();
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                AddExclusion(Path.GetFileName(dialog.SelectedPath));
+
+                mainListBox.DataSource = GetListString();
+            }            
         }
 
         private void removeBtn_Click(object sender, EventArgs e)
@@ -123,6 +141,6 @@ namespace File_Folder_Selector
             settings.Options.FileDirSettings[index] ^= true;
 
             mainListBox.DataSource = GetListString();
-        }
+        }        
     }
 }

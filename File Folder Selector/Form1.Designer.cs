@@ -33,12 +33,13 @@
             this.removeBtn = new System.Windows.Forms.Button();
             this.toAddTextBox = new System.Windows.Forms.TextBox();
             this.addBtn = new System.Windows.Forms.Button();
-            this.browseBtn = new System.Windows.Forms.Button();
+            this.browseFileBtn = new System.Windows.Forms.Button();
             this.alterBtn = new System.Windows.Forms.Button();
             this.tutorialLabel = new System.Windows.Forms.Label();
             this.zipFolderCheckBox = new System.Windows.Forms.CheckBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.exampleLbl = new System.Windows.Forms.Label();
+            this.browseFolderBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainListBox
@@ -81,15 +82,15 @@
             // 
             // toAddTextBox
             // 
-            this.toAddTextBox.Location = new System.Drawing.Point(238, 259);
+            this.toAddTextBox.Location = new System.Drawing.Point(241, 242);
             this.toAddTextBox.Name = "toAddTextBox";
-            this.toAddTextBox.Size = new System.Drawing.Size(159, 20);
+            this.toAddTextBox.Size = new System.Drawing.Size(156, 20);
             this.toAddTextBox.TabIndex = 4;
             // 
             // addBtn
             // 
             this.addBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBtn.Location = new System.Drawing.Point(322, 285);
+            this.addBtn.Location = new System.Drawing.Point(322, 296);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
             this.addBtn.TabIndex = 5;
@@ -97,16 +98,16 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
-            // browseBtn
+            // browseFileBtn
             // 
-            this.browseBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.browseBtn.Location = new System.Drawing.Point(238, 285);
-            this.browseBtn.Name = "browseBtn";
-            this.browseBtn.Size = new System.Drawing.Size(75, 23);
-            this.browseBtn.TabIndex = 6;
-            this.browseBtn.Text = "Browse File";
-            this.browseBtn.UseVisualStyleBackColor = true;
-            this.browseBtn.Click += new System.EventHandler(this.browseBtn_Click);
+            this.browseFileBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.browseFileBtn.Location = new System.Drawing.Point(241, 268);
+            this.browseFileBtn.Name = "browseFileBtn";
+            this.browseFileBtn.Size = new System.Drawing.Size(75, 23);
+            this.browseFileBtn.TabIndex = 6;
+            this.browseFileBtn.Text = "Browse File";
+            this.browseFileBtn.UseVisualStyleBackColor = true;
+            this.browseFileBtn.Click += new System.EventHandler(this.browseBtn_Click);
             // 
             // alterBtn
             // 
@@ -123,7 +124,7 @@
             // tutorialLabel
             // 
             this.tutorialLabel.ForeColor = System.Drawing.Color.White;
-            this.tutorialLabel.Location = new System.Drawing.Point(12, 262);
+            this.tutorialLabel.Location = new System.Drawing.Point(12, 227);
             this.tutorialLabel.Name = "tutorialLabel";
             this.tutorialLabel.Size = new System.Drawing.Size(181, 43);
             this.tutorialLabel.TabIndex = 9;
@@ -158,11 +159,22 @@
             this.exampleLbl.AutoSize = true;
             this.exampleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exampleLbl.ForeColor = System.Drawing.Color.White;
-            this.exampleLbl.Location = new System.Drawing.Point(238, 241);
+            this.exampleLbl.Location = new System.Drawing.Point(242, 223);
             this.exampleLbl.Name = "exampleLbl";
             this.exampleLbl.Size = new System.Drawing.Size(155, 16);
             this.exampleLbl.TabIndex = 13;
             this.exampleLbl.Text = "ie: project.csproj, *.txt, bin";
+            // 
+            // browseFolderBtn
+            // 
+            this.browseFolderBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.browseFolderBtn.Location = new System.Drawing.Point(322, 268);
+            this.browseFolderBtn.Name = "browseFolderBtn";
+            this.browseFolderBtn.Size = new System.Drawing.Size(75, 23);
+            this.browseFolderBtn.TabIndex = 14;
+            this.browseFolderBtn.Text = "Browse Dir";
+            this.browseFolderBtn.UseVisualStyleBackColor = true;
+            this.browseFolderBtn.Click += new System.EventHandler(this.browseFolderBtn_Click);
             // 
             // Form1
             // 
@@ -170,12 +182,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(409, 366);
+            this.Controls.Add(this.browseFolderBtn);
             this.Controls.Add(this.exampleLbl);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.zipFolderCheckBox);
             this.Controls.Add(this.tutorialLabel);
             this.Controls.Add(this.alterBtn);
-            this.Controls.Add(this.browseBtn);
+            this.Controls.Add(this.browseFileBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.toAddTextBox);
             this.Controls.Add(this.removeBtn);
@@ -197,12 +210,13 @@
         private System.Windows.Forms.Button removeBtn;
         private System.Windows.Forms.TextBox toAddTextBox;
         private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Button browseBtn;
+        private System.Windows.Forms.Button browseFileBtn;
         private System.Windows.Forms.Button alterBtn;
         private System.Windows.Forms.Label tutorialLabel;
         private System.Windows.Forms.CheckBox zipFolderCheckBox;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Label exampleLbl;
+        private System.Windows.Forms.Button browseFolderBtn;
     }
 }
 
