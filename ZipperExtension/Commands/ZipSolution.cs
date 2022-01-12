@@ -37,7 +37,7 @@ namespace ZipperExtension.Commands
                     targetPath += "Zipped Projects\\";
                 }
 
-                Zip.ZipProject(projectPath, targetPath, name, Options);
+                await Task.Run(() => Zip.ZipProject(projectPath, targetPath, name, Options));
                 await VS.MessageBox.ShowAsync($"Added zipped project to {name}.zip");
             }
         }
