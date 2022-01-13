@@ -34,7 +34,7 @@ namespace ZipperExtension.Utils
 
             form.ChangeLabel("Creating zip...");
             ZipFile.CreateFromDirectory(target.FullName, targetPath + ".zip");
-            var allDir = Directory.GetDirectories(target.FullName);
+
             form.ChangeLabel("Finishing up...");
             target.Delete(true);
         }

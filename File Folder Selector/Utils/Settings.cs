@@ -23,6 +23,7 @@ namespace File_Folder_Selector.Utils
                 {
                     { "bin", true },
                     { "obj", true },
+                    { ".git", true },
                     { ".vs", true}
                 };
                 bool createZip = true;
