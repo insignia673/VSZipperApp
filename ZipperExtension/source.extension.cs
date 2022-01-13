@@ -12,7 +12,7 @@ namespace ZipperExtension
         public const string Description = @"Visual Studio extension to easily zip project files excluding the bin and obj directoriesVisual Studio extension to ";
         public const string Language = "en-US";
         public const string Version = "1.0";
-        public const string Author = "Insignia";
+        public const string Author = "SigDev";
         public const string Tags = "";
     }
 }

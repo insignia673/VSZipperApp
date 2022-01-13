@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="ZipperExtension.ff9d6561-11c0-4eaa-b5ee-9d670ad3167a" Version="1.0" Language="en-US" Publisher="Insignia" />
+        <Identity Id="ZipperExtension.ff9d6561-11c0-4eaa-b5ee-9d670ad3167a" Version="1.0" Language="en-US" Publisher="SigDev" />
         <DisplayName>ZipperExtension</DisplayName>
         <Description xml:space="preserve">Visual Studio extension to easily zip project files excluding the bin and obj directoriesVisual Studio extension to </Description>
         <Icon>Resources\Icon.png</Icon>
