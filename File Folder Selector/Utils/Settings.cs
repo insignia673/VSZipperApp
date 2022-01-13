@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,11 +13,14 @@ namespace File_Folder_Selector.Utils
     public class Settings
     {
         public Options Options;
+        private static string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\VSZipperExtension";
+        private static string file = @"\ZipperSettings.json";
         public Settings()
         {
-            if (File.Exists("ZipperSettings.json") == false)
+            if (File.Exists($"{directory + file}") == false)
             {
-                File.Create("ZipperSettings.json").Dispose();
+                Directory.CreateDirectory(directory);
+                File.Create($"{directory + file}").Dispose();
 
                 //write default settings
                 var dict = new Dictionary<string, bool>()
@@ -40,12 +44,12 @@ namespace File_Folder_Selector.Utils
         public void Save()
         {
             var json = JsonConvert.SerializeObject(Options, Formatting.Indented);
-            File.WriteAllText("ZipperSettings.json", json);
+            File.WriteAllText($"{directory + file}", json);
         }
 
         public Options GetOptions()
         {
-            var text = File.ReadAllText("ZipperSettings.json");
+            var text = File.ReadAllText($"{directory + file}");
             var data = JsonConvert.DeserializeObject<Options>(text);
             return data;
         }

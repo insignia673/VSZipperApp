@@ -7,9 +7,9 @@ namespace ZipperExtension
 {
     internal sealed partial class Vsix
     {
-        public const string Id = "ZipperExtension.ff9d6561-11c0-4eaa-b5ee-9d670ad3167a";
-        public const string Name = "ZipperExtension";
-        public const string Description = @"Visual Studio extension to easily zip project files excluding the bin and obj directoriesVisual Studio extension to ";
+        public const string Id = "ZipperExtension.ff9d6561-11c0-4eaa-b5ee-9d602ad3167a";
+        public const string Name = "Zipper Extension";
+        public const string Description = @"Visual Studio extension to easily zip project files excluding the bin and obj directories.";
         public const string Language = "en-US";
         public const string Version = "1.0";
         public const string Author = "SigDev";

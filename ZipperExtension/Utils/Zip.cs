@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace ZipperExtension.Utils
 {
@@ -28,7 +30,6 @@ namespace ZipperExtension.Utils
             if (File.Exists(targetPath + ".zip"))
                 File.Delete(targetPath + ".zip");
 
-            //change to method in form
             form.ChangeLabel("Copying data...");
             CopyAll(info, target);
 
@@ -47,8 +48,8 @@ namespace ZipperExtension.Utils
             foreach (FileInfo fi in source.GetFiles())
             {
                 if (Exclusion.Contains(fi.Name) ||
-                    Exclusion.Any(x => x[0] == '*' &&
-                    fi.Name.EndsWith(new string(x.Skip(1).ToArray()))))
+                    (Exclusion.Any(x => x[0] == '*' &&
+                    fi.Name.EndsWith(new string(x.Skip(1).ToArray())))))
                     continue;
 
                 Console.WriteLine(@"Copying {0}\{1}", target.FullName, fi.Name);
