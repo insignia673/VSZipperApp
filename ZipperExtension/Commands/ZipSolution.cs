@@ -1,4 +1,5 @@
-﻿using File_Folder_Selector.Structs;
+﻿using File_Folder_Selector;
+using File_Folder_Selector.Structs;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,7 +38,11 @@ namespace ZipperExtension.Commands
                     targetPath += "Zipped Projects\\";
                 }
 
-                await Task.Run(() => Zip.ZipProject(projectPath, targetPath, name, Options));
+                var form = new LoadingForm();
+                form.Show();
+
+                await Task.Run(() => Zip.ZipProject(projectPath, targetPath, name, Options, form));
+                form.Close();
                 await VS.MessageBox.ShowAsync($"Added zipped project to {name}.zip");
             }
         }

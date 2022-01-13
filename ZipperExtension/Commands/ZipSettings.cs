@@ -12,7 +12,7 @@ namespace ZipperExtension.Commands
     {
         protected override void Execute(object sender, EventArgs e)
         {
-            var form = new Form1();
+            var form = new SettingsForm();
             form.ShowDialog();
         }
     }

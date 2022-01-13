@@ -3,6 +3,7 @@ using ZipperExtension.Utils;
 using File_Folder_Selector.Utils;
 using File_Folder_Selector.Structs;
 using System.IO;
+using File_Folder_Selector;
 
 namespace ZipperExtension
 {
@@ -33,7 +34,11 @@ namespace ZipperExtension
                     targetPath += "Zipped Projects\\";
                 }
 
-                await Task.Run(() => Zip.ZipProject(projectPath, targetPath, name, Options));
+                var form = new LoadingForm();
+                form.Show();
+
+                await Task.Run(() => Zip.ZipProject(projectPath, targetPath, name, Options, form));
+                form.Close();
                 await VS.MessageBox.ShowAsync($"Added zipped project to {name}.zip");
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using File_Folder_Selector;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -9,7 +10,7 @@ namespace ZipperExtension.Utils
     public class Zip
     {
         public static List<string> Exclusion { get; set; }
-        public static void ZipProject(string path, string targetPath, string targetName, File_Folder_Selector.Structs.Options options)
+        public static void ZipProject(string path, string targetPath, string targetName, File_Folder_Selector.Structs.Options options, LoadingForm form)
         {
             Exclusion = new List<string>();
 
@@ -27,9 +28,14 @@ namespace ZipperExtension.Utils
             if (File.Exists(targetPath + ".zip"))
                 File.Delete(targetPath + ".zip");
 
+            //change to method in form
+            form.ChangeLabel("Copying data...");
             CopyAll(info, target);
 
-            ZipFile.CreateFromDirectory(target.FullName, targetPath+".zip");
+            form.ChangeLabel("Creating zip...");
+            ZipFile.CreateFromDirectory(target.FullName, targetPath + ".zip");
+            var allDir = Directory.GetDirectories(target.FullName);
+            form.ChangeLabel("Finishing up...");
             target.Delete(true);
         }
 
