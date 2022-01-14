@@ -4,7 +4,7 @@ A Visual Studio extension for fast and easy project zipping excluding unnecessar
 ## How to install:
 Click on the Extensions tab and search for "Zipper Extension" Created by: SigDev. Once you download, you should be ready to go!
 
-![Extension](Images/Exntesion.png)
+![Extension](Images/Extension.png)
 
 ## How to use:
 Right click on the project or solution you want to Zip and select the "Zip Project" or "Zip Solution" option.
