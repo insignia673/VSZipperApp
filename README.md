@@ -7,5 +7,7 @@ A folder containing all your zip files will be automatically created within your
 (this can be changed in the "Zip Project Settings" option in the project tab).
 You may change the directories/files to exclude from your zip in the settings.
 
+![image test](Images/ZipProject.png)
+
 ## How to install:
 Click on the Extensions tab and search for "Zipper Extension" Created by: SigDev. Once you download, you should be ready to go!
