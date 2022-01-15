@@ -60,7 +60,9 @@ namespace ZipperExtension.Utils
             foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
             {
                 // exclude unwanted director and temporary dir if needed
-                if (Exclusion.Contains(diSourceSubDir.Name) || diSourceSubDir.Name == target.Name)
+                if (diSourceSubDir.Attributes.HasFlag(FileAttributes.Hidden) ||
+                    Exclusion.Contains(diSourceSubDir.Name) ||
+                    diSourceSubDir.Name == target.Name)
                     continue;
 
                 DirectoryInfo nextTargetSubDir =
